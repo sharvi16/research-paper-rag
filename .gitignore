@@ -1,0 +1,46 @@
+# Environment variables (CRITICAL - API KEYS)
+.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# ChromaDB vector store (regenerable)
+data/chroma_store/
+
+# PDF papers (can be re-downloaded)
+data/papers/*.pdf
+
+# Processed data (generated)
+data/processed/
+
+# Optional: JSON metadata (if auto-generated)
+# data/papers/*.json
+
+# IDE-specific
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+# PDF research papers (re-downloadable via download_papers.py)
+data/papers/*.pdf
+data/papers/*.json
