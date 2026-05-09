@@ -36,7 +36,7 @@ User Query → Embedder → PaperRetriever (Cosine Similarity)
    ```
 
 2. **Environment Variables**
-   Create a `.env` file in the root directory (using `.env.example` as a template) and add your Groq API key:
+   Create a `.env` file in the root directory and add your Groq API key:
    ```env
    GROQ_API_KEY=your_groq_api_key_here
    ```
