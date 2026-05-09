@@ -1,15 +1,15 @@
-# 📄 ML Paper RAG
+# 📄 Research Paper RAG
 
-A powerful, end-to-end Retrieval-Augmented Generation (RAG) system built specifically to ingest, process, and deeply interact with academic Machine Learning papers. 
+A powerful, end-to-end Retrieval-Augmented Generation (RAG) system built specifically to ingest, process, and deeply interact with academic papers. 
 
-## ✨ Features
+## Features
 - **Intelligent Ingestion:** Automatically downloads papers from ArXiv, parses complex academic PDF layouts, extracts metadata/citations, and chunks them using semantic section-aware boundaries.
 - **Contextual QA:** Query your document base using either standard academic formatting or a jargon-free "Beginner Mode."
 - **Paper Comparison:** Side-by-side comparison of two specific papers, evaluating approaches, strengths, and weaknesses into a Markdown table.
 - **Interview Prep Generator:** Synthesizes conceptual, implementation, and critical thinking questions from a specific paper or broad topic.
 - **Interactive UI:** A full-featured Streamlit frontend with dynamic source tracking, similarity progress bars, and high-density summary modals.
 
-## 🏗 Architecture
+## Architecture
 
 ```text
 [ INGESTION PIPELINE ]
@@ -27,7 +27,7 @@ User Query → Embedder → PaperRetriever (Cosine Similarity)
                                             Response (UI)
 ```
 
-## 🚀 Setup Instructions
+## Setup Instructions
 
 1. **Install Dependencies**
    Ensure you have Python 3.9+ installed.
@@ -42,7 +42,7 @@ User Query → Embedder → PaperRetriever (Cosine Similarity)
    ```
 
 3. **Download Papers**
-   Use the provided script to automatically fetch recent benchmark ML papers from ArXiv:
+   Use the provided script to automatically fetch recent benchmark papers from ArXiv:
    ```bash
    python scripts/download_papers.py
    ```
@@ -66,7 +66,7 @@ User Query → Embedder → PaperRetriever (Cosine Similarity)
    streamlit run app/streamlit_app.py
    ```
 
-## 🎯 Example Queries
+## Example Queries
 
 ### Ask Papers
 - **Standard Mode:** "How does the attention mechanism in the Transformer architecture solve the bottleneck problem of RNNs?"
@@ -82,7 +82,7 @@ User Query → Embedder → PaperRetriever (Cosine Similarity)
 - **Input:** Select "InstructGPT" or type a broad topic like "RLHF".
   *Expected Output:* 10 questions categorized into Conceptual, Implementation, and Critical Thinking, complete with hidden Model Answers.
 
-## 🛠 Tech Stack
+## Tech Stack
 
 | Component | Library/Tool | Purpose |
 | :--- | :--- | :--- |
