@@ -1,9 +1,10 @@
 """
-Prompt templates for the ML Paper RAG generation pipeline.
+Prompt templates for the Research Paper RAG generation pipeline.
+Generalized for any academic domain — not limited to Machine Learning.
 """
 
-QA_PROMPT = """You are an expert Machine Learning research assistant.
-Based on the following extracted chunks from academic papers, answer the user's question.
+QA_PROMPT = """You are an expert research assistant with broad knowledge across academic disciplines.
+Based on the following extracted chunks from research papers, answer the user's question.
 
 Papers referenced: {paper_titles}
 
@@ -21,8 +22,8 @@ INSTRUCTIONS:
 """
 
 
-BEGINNER_PROMPT = """You are a helpful and patient Machine Learning tutor.
-Based on the following extracted chunks from academic papers, answer the user's question.
+BEGINNER_PROMPT = """You are a helpful and patient tutor who can explain complex academic research clearly.
+Based on the following extracted chunks from research papers, answer the user's question.
 
 CONTEXT:
 {context}
@@ -35,15 +36,15 @@ INSTRUCTIONS:
 - If the answer cannot be found in the provided papers, you must state exactly: "not found in provided papers".
 - Begin your response with "Based on the papers: " followed by your answer.
 - Explicitly cite specific papers by name when discussing them (extract the names directly from the context block headers).
-- Avoid using overly dense academic jargon. 
-- Use simple analogies to explain complex machine learning concepts.
-- Explicitly explain any acronyms used.
-- Include a "Simple version:" section at the very end of your response summarizing the core idea in one or two simple sentences.
+- Avoid using overly dense academic or technical jargon.
+- Use simple real-world analogies to explain complex concepts regardless of the domain.
+- Explicitly spell out and explain any acronyms or domain-specific terms used.
+- Include a "Simple version:" section at the very end of your response summarizing the core idea in one or two simple sentences that anyone could understand.
 """
 
 
-COMPARISON_PROMPT = """You are an expert AI architecture analyst.
-Compare the two machine learning papers below regarding the following aspect/topic: {aspect}
+COMPARISON_PROMPT = """You are an expert academic analyst capable of comparing research across any discipline.
+Compare the two research papers below regarding the following aspect/topic: {aspect}
 
 PAPER 1: {paper1_title}
 CONTEXT 1:
@@ -54,15 +55,17 @@ CONTEXT 2:
 {paper2_context}
 
 INSTRUCTIONS:
-Analyze how both papers tackle the specified aspect. 
+Analyze how both papers tackle the specified aspect.
 Your final output MUST be a Markdown table comparing the two papers with the following exact columns:
 | Approach | Strengths | Weaknesses | Best used when |
 
-Ensure the table compares Paper 1 and Paper 2 clearly. You may add brief explanatory text before or after the table if necessary.
+Ensure the table compares Paper 1 and Paper 2 clearly as separate rows.
+You may add brief explanatory text before or after the table if necessary.
 """
 
 
-INTERVIEW_PROMPT = """You are a senior Machine Learning Engineer interviewing a candidate based on a specific research paper.
+INTERVIEW_PROMPT = """You are a senior researcher and subject matter expert interviewing a candidate
+based on their understanding of a specific research paper.
 
 PAPER TITLE: {title}
 ABSTRACT: {abstract}
@@ -70,7 +73,8 @@ KEY SECTIONS:
 {key_sections}
 
 INSTRUCTIONS:
-Generate an interview question sheet based on the paper above.
+Generate an interview question sheet that tests deep understanding of this paper.
+The questions should be relevant to the paper's specific domain and contributions.
 You MUST follow this EXACT format with no deviations. Each question and answer must be on its own clearly labeled line:
 
 ### Conceptual Questions
@@ -103,8 +107,8 @@ Do not add any extra text, headers, or formatting outside of this structure.
 """
 
 
-SUMMARY_PROMPT = """You are an expert scientific summarizer.
-Below are the key sections extracted from a machine learning paper.
+SUMMARY_PROMPT = """You are an expert academic summarizer capable of distilling research from any field.
+Below are the key sections extracted from a research paper.
 
 ABSTRACT:
 {abstract}
@@ -116,11 +120,12 @@ CONCLUSION:
 {conclusion}
 
 INSTRUCTIONS:
-Provide a concise and highly accurate summary of this paper.
+Provide a concise and accurate summary of this paper regardless of its academic domain.
 Format your output exactly as follows:
 
 Summary:
-[Write exactly a 3-sentence summary of the paper encompassing the core problem, the proposed solution, and the final results].
+[Write exactly a 3-sentence summary covering: the core problem or research gap addressed,
+the proposed method or approach, and the key findings or conclusions].
 
 Key Contributions:
 - [Contribution 1]

@@ -39,7 +39,7 @@ papers = st.session_state.papers_list
 # SIDEBAR
 # ─────────────────────────────────────────
 with st.sidebar:
-    st.markdown("# 📄 ML Paper RAG")
+    st.markdown("# 📄Research Paper RAG")
     
     health = api_get("/health") or {"total_papers": 0, "total_chunks": 0, "model": "Unknown"}
     
@@ -69,11 +69,11 @@ with st.sidebar:
 # ─────────────────────────────────────────
 # TABS
 # ─────────────────────────────────────────
-tab1, tab2, tab3, tab4 = st.tabs(["📄 Ask Papers", "⚖️ Compare", "🎯 Interview Prep", "📚 Browse"])
+tab1, tab2, tab3, tab4 = st.tabs(["Ask Papers", "Compare", "Interview Prep", "Browse"])
 
 # TAB 1: Ask Papers
 with tab1:
-    st.header("Ask Questions about ML Papers")
+    st.header("Ask Questions about Papers")
     
     paper_options = {"All Papers": None}
     for p in papers:
@@ -185,7 +185,7 @@ with tab3:
 
 # TAB 4: Browse Papers
 with tab4:
-    st.header("Browse Indexed Papers")
+    st.header("Browse Papers")
     
     search_query = st.text_input("Filter papers...", key="paper_filter")
     
@@ -212,14 +212,14 @@ with tab4:
             with cols[i % 3]:
                 with st.container(border=True):
                     st.markdown(f"**{p['title']}**")
-                    authors_str = p.get('authors', ['Unknown'])[0] + " et al." if p.get('authors') else "Unknown authors"
+                    authors_str = p.get('authors', ['Unknown'])[0] + " etc." if p.get('authors') else "Unknown authors"
                     st.caption(f"{authors_str} • {p.get('date', '')}")
                     
-                    abstract = p.get('abstract', '')
-                    if len(abstract) > 200:
-                        st.markdown(abstract[:200] + "...")
-                    else:
-                        st.markdown(abstract)
+                    # abstract = p.get('abstract', '')
+                    # if len(abstract) > 200:
+                    #     st.markdown(abstract[:200] + "...")
+                    # else:
+                    #     st.markdown(abstract)
                         
                     if st.button("View Summary", key=f"summary_{p['id']}"):
                         show_summary(p['id'])
